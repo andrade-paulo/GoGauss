@@ -56,13 +56,21 @@ func main() {
 	fmt.Println()
 
 	answer_jacobi, err_jacobi := methods.GaussJacobi(A, b, x0, 0.0001)
+	answer_seidel, err_seidel := methods.GaussSeidel(A, b, x0, 0.0001)
 
 	fmt.Println("-=- Iterative Methods -=-")
-	fmt.Print("Gauss-Jacobi: ")
 
+	fmt.Print("Gauss-Jacobi: ")
 	if err_jacobi != nil {
 		fmt.Println(err_jacobi)
 	} else {
 		fmt.Println(answer_jacobi)
+	}
+
+	fmt.Print("Gauss-Seidel: ")
+	if err_seidel != nil {
+		fmt.Println(err_seidel)
+	} else {
+		fmt.Println(answer_seidel)
 	}
 }
